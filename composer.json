@@ -1,0 +1,23 @@
+{
+  "name": "ionghitun/jwt-token",
+  "description": "Json web token generation and validation.",
+  "type": "library",
+  "require": {
+    "php": ">=7.1",
+    "nesbot/carbon": ">=1.0",
+    "ext-json": "*"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ion Ghitun",
+      "email": "ionghitun@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "IonGhitun\\JwtToken\\": "src/"
+    }
+  }
+}
