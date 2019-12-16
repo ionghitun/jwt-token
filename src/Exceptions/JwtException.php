@@ -1,6 +1,6 @@
 <?php
 
-namespace IonGhitun\JwtToken;
+namespace IonGhitun\JwtToken\Exceptions;
 
 use Exception;
 

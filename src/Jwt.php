@@ -3,6 +3,7 @@
 namespace IonGhitun\JwtToken;
 
 use Carbon\Carbon;
+use IonGhitun\JwtToken\Exceptions\JwtException;
 
 /**
  * Class Jwt
