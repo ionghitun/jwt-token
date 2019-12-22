@@ -7,7 +7,7 @@ use Exception;
 /**
  * Class JwtException
  *
- * @package IonGhitun\JwtToken
+ * @package IonGhitun\JwtToken\Exceptions
  */
 class JwtException extends Exception
 {
