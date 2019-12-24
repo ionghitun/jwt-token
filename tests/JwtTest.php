@@ -27,4 +27,16 @@ class JtwTest extends TestCase
 
         $this->assertArrayHasKey('test', Jwt::validateToken($token));
     }
+
+    /**
+     * Test not valid token
+     *
+     * @throws JwtException
+     */
+    public function testJwtException()
+    {
+        $this->expectException(JwtException::class);
+
+        $payload = Jwt::validateToken('token');
+    }
 }

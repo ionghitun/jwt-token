@@ -15,7 +15,15 @@
             <directory>tests</directory>
         </testsuite>
     </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src</directory>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="coverage-html" target="coverage" lowUpperBound="35" highLowerBound="70"/>
+    </logging>
     <php>
-        <server name="JWT_SECRET" value="secret"/>
+        <env name="JWT_SECRET" value="secret"/>
     </php>
 </phpunit>

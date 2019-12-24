@@ -31,8 +31,7 @@ class Jwt
             }
 
             $payload = self::base64EncodeUrlSafe(json_encode($payload));
-
-            $signature = self::base64EncodeUrlSafe(hash_hmac('sha256', $header . '.' . $payload, getenv('JWT_SECRET'), true));
+            $signature = self::generateSignature($header, $payload);
 
             return $header . "." . $payload . "." . $signature;
         } catch (\Exception $e) {
@@ -50,6 +49,26 @@ class Jwt
     private static function base64EncodeUrlSafe(string $string)
     {
         return str_replace('=', '', strtr(base64_encode($string), '+/', '-_'));
+    }
+
+    /**
+     * Generate signature
+     *
+     * @param $header
+     * @param $payload
+     * @param bool $encode
+     *
+     * @return string|string[]
+     */
+    private static function generateSignature($header, $payload, $encode = true)
+    {
+        $signature = hash_hmac('sha256', $header . '.' . $payload, getenv('JWT_SECRET'), true);
+
+        if ($encode) {
+            return self::base64EncodeUrlSafe($signature);
+        }
+
+        return $signature;
     }
 
     /**
@@ -85,7 +104,7 @@ class Jwt
 
             $signature = self::base64DecodeUrlSafe($signature64);
 
-            if ($signature !== hash_hmac('sha256', $header64 . '.' . $payload64, getenv('JWT_SECRET'), true)) {
+            if ($signature !== self::generateSignature($header64, $payload64, false)) {
                 throw new JwtException('Could not verify Jwt token signature!');
             }
 
