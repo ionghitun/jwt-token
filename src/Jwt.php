@@ -3,6 +3,7 @@
 namespace IonGhitun\JwtToken;
 
 use Carbon\Carbon;
+use Exception;
 use IonGhitun\JwtToken\Exceptions\JwtException;
 
 /**
@@ -34,7 +35,7 @@ class Jwt
             $signature = self::generateSignature($header, $payload);
 
             return $header . "." . $payload . "." . $signature;
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             throw new JwtException($e->getMessage(), $e->getCode());
         }
     }
@@ -109,7 +110,7 @@ class Jwt
             }
 
             return $payload;
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             throw new JwtException($e->getMessage(), $e->getCode());
         }
     }
