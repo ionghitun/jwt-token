@@ -40,18 +40,6 @@ class JtwTest extends TestCase
     }
 
     /**
-     * Test not valid jwt token header or payload
-     *
-     * @throws JwtException
-     */
-    public function testJwtExceptionBadToken()
-    {
-        $this->expectException(JwtException::class);
-
-        Jwt::validateToken('token.token.token');
-    }
-
-    /**
      * Test jwt token expired
      *
      * @throws JwtException
