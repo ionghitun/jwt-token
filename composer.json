@@ -18,7 +18,7 @@
   "type": "library",
   "require": {
     "php": ">=7.2",
-    "nesbot/carbon": ">=1.0",
+    "nesbot/carbon": ">=2.0",
     "ext-json": "*"
   },
   "require-dev": {
