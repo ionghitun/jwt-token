@@ -14,7 +14,7 @@ Json web token generation and validation.
 
 ## Dependencies
 
-- php >= 7.2
+- php >= 7.3
 
 ## Documentation:
 

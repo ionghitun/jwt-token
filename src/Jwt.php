@@ -19,7 +19,7 @@ class Jwt
      *
      * @return string
      */
-    public static function generateToken(array $payload)
+    public static function generateToken(array $payload): string
     {
         $header = self::base64EncodeUrlSafe(json_encode(['typ' => 'JWT', 'alg' => 'HS256']));
 
@@ -69,6 +69,7 @@ class Jwt
      * Validate JWT token and return payload
      *
      * @param $token
+     *
      * @return mixed
      *
      * @throws JwtException
@@ -110,8 +111,8 @@ class Jwt
         $mod = strlen($string) % 4;
 
         if ($mod !== 0) {
-            $padlen = 4 - $mod;
-            $string .= str_repeat('=', $padlen);
+            $padLen = 4 - $mod;
+            $string .= str_repeat('=', $padLen);
         }
 
         return base64_decode(strtr($string, '-_', '+/'));
