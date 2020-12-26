@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @package IonGhitun\JwtToken\Tests
  */
-class JtwTest extends TestCase
+class JwtTest extends TestCase
 {
     /**
      * Test generate and validate token
@@ -70,6 +70,6 @@ class JtwTest extends TestCase
 
         $invalidTokenArray = explode('.', $token);
 
-        Jwt::validateToken($invalidTokenArray[0] . '.' . $invalidTokenArray[1] . '.' . 'signature');
+        Jwt::validateToken($invalidTokenArray[0].'.'.$invalidTokenArray[1].'.'.'signature');
     }
 }

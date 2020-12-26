@@ -15,7 +15,7 @@ class Jwt
     /**
      * Generate a new JWT token.
      *
-     * @param array $payload
+     * @param  array  $payload
      *
      * @return string
      */
@@ -30,13 +30,13 @@ class Jwt
         $payload = self::base64EncodeUrlSafe(json_encode($payload));
         $signature = self::generateSignature($header, $payload);
 
-        return $header . "." . $payload . "." . $signature;
+        return $header.".".$payload.".".$signature;
     }
 
     /**
      * Url safe base 64 encode.
      *
-     * @param string $string
+     * @param  string  $string
      *
      * @return string|string[]
      */
@@ -50,13 +50,13 @@ class Jwt
      *
      * @param $header
      * @param $payload
-     * @param bool $encode
+     * @param  bool  $encode
      *
      * @return string|string[]
      */
     private static function generateSignature($header, $payload, $encode = true)
     {
-        $signature = hash_hmac('sha256', $header . '.' . $payload, getenv('JWT_SECRET'), true);
+        $signature = hash_hmac('sha256', $header.'.'.$payload, getenv('JWT_SECRET'), true);
 
         if ($encode) {
             return self::base64EncodeUrlSafe($signature);

@@ -25,11 +25,11 @@ Import `Jwt` from `IonGhitun\JwtToken`
 - use `Jwt::generateToken($payload)` to generate a token, `$payload` should be an array.
 - use `Jwt::validateToken($token)` to validate a token.
 
-Validity of the token is default one day.
-It can be overwritten by adding expiration to `$payload`:
+Validity of the token is default one day. It can be overwritten by adding expiration to `$payload`:
 
         $payload['expiration'] = Carbon::now()->addDay()->format('Y-m-d H:i:s');
 
-In case `$token` is not a valid Jwt token, expired or could not verify signature with secret a `IonGhitun\JwtToken\Exceptions\JwtException` will be thrown on `validateToken` method.
+In case `$token` is not a valid Jwt token, expired or could not verify signature with secret a `IonGhitun\JwtToken\Exceptions\JwtException` will be thrown on `validateToken`
+method.
 
 _Happy coding!_
